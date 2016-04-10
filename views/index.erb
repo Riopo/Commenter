@@ -1,0 +1,26 @@
+<form method="post" action="/new" style="margin-bottom:15px;">
+    <div class="form-group">
+      <label class="sr-only control-label" for="body">こめんとおねしゃす！</label>
+            <textarea class="form-control" id="comment" name="body" cols="30" rows="3" class="form-control" placeholder="コメントしちゃう"></textarea>
+	    <p class="help-block">※ネガティブコメントはやーよ</p>
+    </div>
+  
+  <div class="form-group">
+    	<input type="submit" value="submit" class="btn btn-primary">
+  </div>
+</form>
+
+
+<table class="table table-hover table-condensed">
+  <thead>
+     <tr><th>ID</th><th>コメント</th></tr>
+  </thead>
+  		<% @comments.each do |comment| %>
+        <tbody>
+       		<tr data-id="<%= comment.id %>" class="deleteCmd">
+				<td><%= comment.id %></td>
+				<td><%= h comment.body %></td>
+	 			</tr>
+        </tbody>
+   <% end %>
+</table>
